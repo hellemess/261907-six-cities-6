@@ -4,24 +4,27 @@ import Login from '../login/login';
 import Main from '../main/main';
 import NotFound from '../not-found/not-found';
 import Offer from '../offer/offer';
-import PropTypes from 'prop-types';
+import {offersValidation} from '../../validation';
 import React from 'react';
 
-const App = ({ids, offersCount}) => (
+const App = ({offers}) => (
   <BrowserRouter>
     <Switch>
       <Route path="/" exact>
-        <Main ids={ids} offersCount={offersCount} />
+        <Main offers={offers} />
       </Route>
       <Route path="/login" exact>
         <Login />
       </Route>
       <Route path="/favorites" exact>
-        <Favorites />
+        <Favorites offers={offers} />
       </Route>
-      <Route path="/offer/:id" exact>
-        <Offer />
-      </Route>
+      <Route path="/offer/:id" render={({match}) => {
+        const id = match.params.id;
+        const offer = offers.find((offer) => offer.id === id);
+
+        return <Offer offer={offer} />;
+      }} exact />
       <Route>
         <NotFound />
       </Route>
@@ -29,11 +32,6 @@ const App = ({ids, offersCount}) => (
   </BrowserRouter>
 );
 
-App.propTypes = {
-  ids: PropTypes.arrayOf(
-      PropTypes.string.isRequired
-  ).isRequired,
-  offersCount: PropTypes.number.isRequired
-};
+App.propTypes = offersValidation;
 
 export default App;
