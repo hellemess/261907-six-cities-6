@@ -21,9 +21,9 @@ const App = ({offers}) => (
       </Route>
       <Route path="/offer/:id" render={({match}) => {
         const id = match.params.id;
-        const offer = offers.find((offer) => offer.id === id);
+        const currentOffer = offers.find((offer) => offer.id === id);
 
-        return <Offer offer={offer} />;
+        return <Offer offer={currentOffer} />;
       }} exact />
       <Route>
         <NotFound />

@@ -3,9 +3,11 @@ import {offersValidation} from '../../validation';
 import React, {useState} from 'react';
 
 const OffersList = ({offers}) => {
-  const [active, setActive] = useState(``);
+  const [, setActive] = useState(``);
 
-  return offers.map((offer) => <OfferItem key={offer.id} onMouseEnter={() => {setActive(offer.id)}} offer={offer} />)
+  return offers.map((offer) => <OfferItem key={offer.id} onMouseEnter={() => {
+    setActive(offer.id);
+  }} offer={offer} />);
 };
 
 OffersList.propTypes = offersValidation;

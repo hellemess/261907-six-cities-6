@@ -6,14 +6,14 @@ import React from 'react';
 const OfferItem = ({onMouseEnter, offer}) => {
   const {id, isFavorite, isPremium, previewImage, price, rating, title, type} = offer;
 
-  const ratingWidth = Math.round( rating / 5 * 100 );
+  const ratingWidth = Math.round(rating / 5 * 100);
 
   return (
     <article className="cities__place-card  place-card" onMouseEnter={onMouseEnter}>
       {isPremium
         ? <div className="place-card__mark">
-            <span>Premium</span>
-          </div>
+          <span>Premium</span>
+        </div>
         : ``
       }
       <div className="cities__image-wrapper  place-card__image-wrapper">

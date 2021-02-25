@@ -5,7 +5,7 @@ import ReviewForm from '../review-form/review-form';
 const Offer = ({offer}) => {
   const {bedrooms, description, goods, host, id, images, isFavorite, isPremium, maxAdults, price, rating, title, type} = offer;
 
-  const ratingWidth = Math.round( rating / 5 * 100 );
+  const ratingWidth = Math.round(rating / 5 * 100);
 
   return (
     <>
@@ -46,8 +46,8 @@ const Offer = ({offer}) => {
             <div className="property__wrapper">
               {isPremium
                 ? <div className="property__mark">
-                    <span>Premium</span>
-                  </div>
+                  <span>Premium</span>
+                </div>
                 : ``
               }
               <div className="property__name-wrapper">

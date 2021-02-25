@@ -12,7 +12,7 @@ export const offerValidation = PropTypes.shape({
   }).isRequired,
   description: PropTypes.string.isRequired,
   goods: PropTypes.arrayOf(
-    PropTypes.string.isRequired
+      PropTypes.string.isRequired
   ).isRequired,
   host: PropTypes.shape({
     avatarUrl: PropTypes.string.isRequired,
@@ -22,7 +22,7 @@ export const offerValidation = PropTypes.shape({
   }).isRequired,
   id: PropTypes.string.isRequired,
   images: PropTypes.arrayOf(
-    PropTypes.string.isRequired
+      PropTypes.string.isRequired
   ).isRequired,
   isFavorite: PropTypes.bool.isRequired,
   isPremium: PropTypes.bool.isRequired,

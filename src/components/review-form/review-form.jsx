@@ -3,8 +3,8 @@ import React, {useState} from 'react';
 
 const ReviewForm = () => {
   const [userForm, setUserForm] = useState({
-    rating: '',
-    review: ''
+    rating: ``,
+    review: ``
   });
 
   const handleSubmit = (evt) => {
@@ -15,7 +15,7 @@ const ReviewForm = () => {
     const {name, value} = evt.target;
 
     setUserForm({...userForm, [name]: value});
-  }
+  };
 
   const {rating, review} = userForm;
 
