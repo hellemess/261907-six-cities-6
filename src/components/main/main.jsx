@@ -1,8 +1,8 @@
-import OfferItem from '../offer-item/offer-item';
-import PropTypes from 'prop-types';
+import OffersList from '../offers-list/offers-list';
+import {offersValidation} from '../../validation';
 import React from 'react';
 
-const Main = ({ids, offersCount}) => (
+const Main = ({offers}) => (
   <>
     <header className="header">
       <div className="container">
@@ -67,7 +67,7 @@ const Main = ({ids, offersCount}) => (
         <div className="cities__places-container  container">
           <section className="cities__places  places">
             <h2 className="visually-hidden">Places</h2>
-            <b className="places__found">{offersCount} places to stay in Amsterdam</b>
+            <b className="places__found">{offers.length} places to stay in Amsterdam</b>
             <form className="places__sorting" action="#" method="get">
               <span className="places__sorting-caption">Sort by</span>
               <span className="places__sorting-type" tabIndex="0">
@@ -84,7 +84,7 @@ const Main = ({ids, offersCount}) => (
               </ul>
             </form>
             <div className="cities__places-list  places__list  tabs__content">
-              {ids.map((id) => <OfferItem key={id} />)}
+              <OffersList offers={offers} />
             </div>
           </section>
           <div className="cities__right-section">
@@ -96,11 +96,6 @@ const Main = ({ids, offersCount}) => (
   </>
 );
 
-Main.propTypes = {
-  ids: PropTypes.arrayOf(
-      PropTypes.string.isRequired
-  ).isRequired,
-  offersCount: PropTypes.number.isRequired
-};
+Main.propTypes = offersValidation;
 
 export default Main;
