@@ -1,15 +1,15 @@
 import {Link} from 'react-router-dom';
-import {offerValidation} from '../../validation';
+import {offerItemType} from '../offer-item/offer-item.prop';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const OfferItem = ({onMouseEnter, offer}) => {
+const OfferItem = ({isActive, offer, onMouseEnter, onMouseLeave}) => {
   const {id, isFavorite, isPremium, previewImage, price, rating, title, type} = offer;
 
   const ratingWidth = Math.round(rating / 5 * 100);
 
   return (
-    <article className="cities__place-card  place-card" onMouseEnter={onMouseEnter}>
+    <article className={`cities__place-card  place-card${isActive ? `  cities__place-card--active` : ``}`} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       {isPremium
         ? <div className="place-card__mark">
           <span>Premium</span>
@@ -27,7 +27,7 @@ const OfferItem = ({onMouseEnter, offer}) => {
             <b className="place-card__price-value">&euro;{price}</b>
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
-          <button className={isFavorite ? `place-card__bookmark-button  place-card__bookmark-button--active  button` : `place-card__bookmark-button  button`} type="button">
+          <button className={`place-card__bookmark-button  button${isFavorite ? `  place-card__bookmark-button--active` : ``}`} type="button">
             <svg className="place-card__bookmark-icon" width="18" height="19">
               <use xlinkHref="#icon-bookmark"></use>
             </svg>
@@ -50,8 +50,10 @@ const OfferItem = ({onMouseEnter, offer}) => {
 };
 
 OfferItem.propTypes = {
+  isActive: PropTypes.bool.isRequired,
+  offer: offerItemType,
   onMouseEnter: PropTypes.func.isRequired,
-  offer: offerValidation
+  onMouseLeave: PropTypes.func.isRequired
 };
 
 export default OfferItem;

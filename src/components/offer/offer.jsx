@@ -1,4 +1,4 @@
-import {offersValidation} from '../../validation';
+import {offerItemType} from '../offer-item/offer-item.prop';
 import React from 'react';
 import ReviewForm from '../review-form/review-form';
 
@@ -52,7 +52,7 @@ const Offer = ({offer}) => {
               }
               <div className="property__name-wrapper">
                 <h1 className="property__name">{title}</h1>
-                <button className={isFavorite ? `property__bookmark-button  property__bookmark-button--active  button` : `place-card__bookmark-button  button`} type="button">
+                <button className={`place-card__bookmark-button  button${isFavorite ? `  property__bookmark-button--active` : ``}`} type="button">
                   <svg className="property__bookmark-icon" width="31" height="33">
                     <use xlinkHref="#icon-bookmark"></use>
                   </svg>
@@ -87,7 +87,7 @@ const Offer = ({offer}) => {
               <div className="property__host">
                 <h2 className="property__host-title">Meet the host</h2>
                 <div className="property__host-user user">
-                  <div className={host.isPro ? `property__avatar-wrapper  property__avatar-wrapper--pro  user__avatar-wrapper` : `property__avatar-wrapper  user__avatar-wrapper`}>
+                  <div className={`property__avatar-wrapper  user__avatar-wrapper${host.isPro ? `  property__avatar-wrapper--pro` : ``}`}>
                     <img className="property__avatar  user__avatar" src={host.avatarUrl} alt="Host avatar" width="74" height="74" />
                   </div>
                   <span className="property__user-name">{host.name}</span>
@@ -229,6 +229,6 @@ const Offer = ({offer}) => {
   );
 };
 
-Offer.propTypes = offersValidation;
+Offer.propTypes = offerItemType;
 
 export default Offer;

@@ -1,17 +1,19 @@
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {cityType} from '../city/city.prop';
 import Favorites from '../favorites/favorites';
 import Login from '../login/login';
 import Main from '../main/main';
 import NotFound from '../not-found/not-found';
 import Offer from '../offer/offer';
-import {offersValidation} from '../../validation';
+import {offerItemType} from '../offer-item/offer-item.prop';
+import PropTypes from 'prop-types';
 import React from 'react';
 
-const App = ({offers}) => (
+const App = ({cities, offers}) => (
   <BrowserRouter>
     <Switch>
       <Route path="/" exact>
-        <Main offers={offers} />
+        <Main cities={cities} offers={offers} />
       </Route>
       <Route path="/login" exact>
         <Login />
@@ -32,6 +34,9 @@ const App = ({offers}) => (
   </BrowserRouter>
 );
 
-App.propTypes = offersValidation;
+App.propTypes = {
+  cities: PropTypes.arrayOf(cityType),
+  offers: PropTypes.arrayOf(offerItemType)
+};
 
 export default App;

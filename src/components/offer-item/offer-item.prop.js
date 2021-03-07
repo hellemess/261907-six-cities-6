@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export const offerValidation = PropTypes.shape({
+export const offerItemType = PropTypes.shape({
   bedrooms: PropTypes.number.isRequired,
   city: PropTypes.shape({
     location: PropTypes.shape({
@@ -38,7 +38,3 @@ export const offerValidation = PropTypes.shape({
   title: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired
 }).isRequired;
-
-export const offersValidation = {
-  offers: PropTypes.arrayOf(offerValidation)
-};
