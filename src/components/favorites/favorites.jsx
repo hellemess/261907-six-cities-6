@@ -1,4 +1,5 @@
-import {offersValidation} from '../../validation';
+import {offerItemType} from '../offer-item/offer-item.prop';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 const Favorites = ({offers}) => (
@@ -88,6 +89,8 @@ const Favorites = ({offers}) => (
   </>
 );
 
-Favorites.propTypes = offersValidation;
+Favorites.propTypes = {
+  offers: PropTypes.arrayOf(offerItemType)
+};
 
 export default Favorites;
