@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import React, {useState} from 'react';
 
 const OffersList = ({offers}) => {
-  const [active, setActive] = useState(null);
+  const [activeOfferId, setActive] = useState(null);
 
-  return offers.map((offer) => <OfferItem key={offer.id} isActive={active === offer.id} offer={offer} onMouseEnter={() => {
+  return offers.map((offer) => <OfferItem key={offer.id} isActive={activeOfferId === offer.id} offer={offer} onMouseEnter={() => {
     setActive(offer.id);
   }} onMouseLeave={() => {
     setActive(null);

@@ -1,11 +1,10 @@
 import {Link} from 'react-router-dom';
-import {offerItemType} from '../offer-item/offer-item.prop';
+import {offerItemType} from './offer-item.prop';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 const OfferItem = ({isActive, offer, onMouseEnter, onMouseLeave}) => {
   const {id, isFavorite, isPremium, previewImage, price, rating, title, type} = offer;
-
   const ratingWidth = Math.round(rating / 5 * 100);
 
   return (

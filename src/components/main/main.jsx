@@ -41,11 +41,6 @@ const Main = ({cities, offers}) => {
               {cities.map((city) => (
                 <City key={city.id} city={city} isActive={city.name === currentCity.name} onClick={(evt) => {
                   evt.preventDefault();
-
-                  if (evt.target.classList.contains(`tabs__item--active`)) {
-                    return;
-                  }
-
                   setCurrentCity(city);
                 }} />
               ))}

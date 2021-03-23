@@ -4,7 +4,7 @@ import React from 'react';
 
 const City = ({city, isActive, onClick}) => (
   <li key={city.id} className="locations__item">
-    <a className={`locations__item-link  tabs__item${isActive ? `  tabs__item--active` : ``}`} onClick={onClick}>
+    <a className={`locations__item-link  tabs__item${isActive ? `  tabs__item--active` : ``}`} onClick={!isActive ? onClick : null}>
       <span>{city.name}</span>
     </a>
   </li>
