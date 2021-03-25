@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 export const cityType = PropTypes.shape({
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
   location: PropTypes.shape({
     latitude: PropTypes.number.isRequired,
     longitude: PropTypes.number.isRequired,

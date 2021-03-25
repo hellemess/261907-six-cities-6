@@ -8,8 +8,9 @@ import Offer from '../offer/offer';
 import {offerItemType} from '../offer-item/offer-item.prop';
 import PropTypes from 'prop-types';
 import React from 'react';
+import {reviewItemType} from '../review-item/review-item.prop';
 
-const App = ({cities, offers}) => (
+const App = ({cities, offers, reviews}) => (
   <BrowserRouter>
     <Switch>
       <Route path="/" exact>
@@ -23,9 +24,8 @@ const App = ({cities, offers}) => (
       </Route>
       <Route path="/offer/:id" render={({match}) => {
         const id = match.params.id;
-        const currentOffer = offers.find((offer) => offer.id === id);
 
-        return <Offer offer={currentOffer} />;
+        return <Offer currentId={id} offers={offers} reviews={reviews} />;
       }} exact />
       <Route>
         <NotFound />
@@ -36,7 +36,8 @@ const App = ({cities, offers}) => (
 
 App.propTypes = {
   cities: PropTypes.arrayOf(cityType),
-  offers: PropTypes.arrayOf(offerItemType)
+  offers: PropTypes.arrayOf(offerItemType),
+  reviews: PropTypes.arrayOf(reviewItemType)
 };
 
 export default App;
